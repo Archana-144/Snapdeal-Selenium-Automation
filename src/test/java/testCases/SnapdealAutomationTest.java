@@ -4,6 +4,8 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -135,8 +137,10 @@ public class SnapdealAutomationTest extends BaseClass
         hp.hoverSignIn();
 
         Thread.sleep(2000);
+        
 
         hp.clickRegister();
+        driver.switchTo().frame(driver.findElement(By.id("loginIframe")));
 
         Thread.sleep(2000);
         lp.enterMobileEmail("9731343351");
@@ -144,13 +148,23 @@ public class SnapdealAutomationTest extends BaseClass
         Thread.sleep(1000);
 
         lp.clickContinue();
-
-        Thread.sleep(2000);
         
-    
+        Thread.sleep(2000);
+
+     // Switch back
+     driver.switchTo().defaultContent();
+
+     // Switch again into the login iframe
+     
+     driver.switchTo().frame("loginIframe");
      // REGISTRATION PAGE
   
      // Enter Name
+    
+     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+     wait.until(ExpectedConditions.presenceOfElementLocated(By.id("j_name")));
+     lp.clearDOB();
      lp.enterName("Archana");
 
      // Enter DOB
@@ -172,7 +186,7 @@ public class SnapdealAutomationTest extends BaseClass
 
      System.out.println("Actual Email Validation : " + actualEmailValidation);
 
-     Assert.assertEquals(actualEmailValidation, "Please enter an email");
+     Assert.assertEquals(actualEmailValidation, "Please enter a valid email");
 
      System.out.println("Email Validation Passed");
 
@@ -183,6 +197,7 @@ public class SnapdealAutomationTest extends BaseClass
      Assert.assertEquals(actualPasswordValidation, "Please enter a password");
 
      System.out.println("Password Validation Passed");
+     lp.clearEmail();
 
      lp.enterEmail("archana@gmail.com");
 

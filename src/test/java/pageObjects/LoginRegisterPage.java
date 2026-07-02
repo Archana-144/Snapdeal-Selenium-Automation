@@ -134,6 +134,7 @@ public class LoginRegisterPage
     {
         registerContinueButton().click();
     }
+    
 
     // VALIDATION METHODS
     
@@ -146,5 +147,15 @@ public class LoginRegisterPage
     {
         return passwordValidationMessage().getText();
     }
+    
+    public void clearEmail()
+    {
+        driver.findElement(txtEmail).clear();
+    }
 
+
+public void clearDOB()
+{
+    driver.findElement(txtDOB).clear();
+}
 }
