@@ -1,8 +1,10 @@
 package testCases;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,6 +49,55 @@ public class SnapdealAutomationTest extends BaseClass
         LoginRegisterPage lp = new LoginRegisterPage(driver);
 
        
+     // Apply Filter
+        
+        
+     // Sort By Filter
+
+        hp.clickSortDropdown();
+
+        Thread.sleep(1000);
+
+        hp.clickPriceLowToHigh();
+
+        Thread.sleep(4000);
+
+        // Verify prices...
+
+        // Customer Rating Filter
+
+        hp.clickFourStarRating();
+
+        Thread.sleep(4000);
+
+        System.out.println("4 Star & Up Filter Applied Successfully");
+
+        // Discount Filter
+
+        hp.clickDiscount20to30();
+
+        Thread.sleep(4000);
+
+        System.out.println("20-30% Discount Filter Applied Successfully");
+        // VERIFY FILTER HERE
+
+        List<WebElement> prices = hp.getProductPrices();
+
+        int price1 = Integer.parseInt(prices.get(0).getText().replace("Rs. ", "").replace(",", ""));
+        int price2 = Integer.parseInt(prices.get(1).getText().replace("Rs. ", "").replace(",", ""));
+        int price3 = Integer.parseInt(prices.get(2).getText().replace("Rs. ", "").replace(",", ""));
+        int price4 = Integer.parseInt(prices.get(3).getText().replace("Rs. ", "").replace(",", ""));
+
+        System.out.println("Price 1 : " + price1);
+        System.out.println("Price 2 : " + price2);
+        System.out.println("Price 3 : " + price3);
+        System.out.println("Price 4 : " + price4);
+
+        Assert.assertTrue(price1 <= price2);
+        Assert.assertTrue(price2 <= price3);
+        Assert.assertTrue(price3 <= price4);
+
+        System.out.println("Price Low To High Filter Verified Successfully");
      // FIRST PRODUCT
 
         String expectedProduct1 = hp.getFirstProductName().trim();
@@ -184,6 +235,8 @@ public class SnapdealAutomationTest extends BaseClass
         driver.switchTo().defaultContent();
         
         cp.clickCloseCartPopup();
+        
+        
 
         hp.hoverSignIn();
 

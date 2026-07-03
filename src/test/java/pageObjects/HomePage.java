@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +37,19 @@ public class HomePage
     By secondProductName = By.xpath("(//p[contains(@class,'product-title')])[2]");
 
     By thirdProductName = By.xpath("(//p[contains(@class,'product-title')])[3]");
+    //filters
+    
+ // Sort By Dropdown
+    By sortDropdown = By.xpath("//div[@class='sort-selected']");
+
+    // Price Low To High Option
+    By priceLowToHigh = By.xpath("(//li[@data-index='1'])[2]");
+    
+    By productPrices = By.xpath("//span[@class='lfloat product-price']");
+    
+    By fourStarRating = By.xpath("//label[@for='avgRating-4.0']");
+    
+    By discount20to30 = By.xpath("//label[@for='discount-20 - 30']");
     // WebElement Methods
    
 
@@ -79,6 +94,27 @@ public class HomePage
     public WebElement registerButton()
     {
         return driver.findElement(register);
+    }
+    public WebElement sortDropdown()
+    {
+        return driver.findElement(sortDropdown);
+    }
+
+    public WebElement priceLowToHigh()
+    {
+        return driver.findElement(priceLowToHigh);
+    }
+    public List<WebElement> getProductPrices()
+    {
+        return driver.findElements(productPrices);
+    }
+    public WebElement fourStarRating()
+    {
+        return driver.findElement(fourStarRating);
+    }
+    public WebElement discount20to30()
+    {
+        return driver.findElement(discount20to30);
     }
     // Action Methods
     
@@ -125,5 +161,22 @@ public class HomePage
     public String getThirdProductName()
     {
         return thirdProductName().getText();
+    }
+    public void clickSortDropdown()
+    {
+        sortDropdown().click();
+    }
+
+    public void clickPriceLowToHigh()
+    {
+        priceLowToHigh().click();
+    }
+    public void clickFourStarRating()
+    {
+        fourStarRating().click();
+    }
+    public void clickDiscount20to30()
+    {
+        discount20to30().click();
     }
 }
