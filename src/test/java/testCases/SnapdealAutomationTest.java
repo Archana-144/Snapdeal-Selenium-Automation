@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -67,18 +68,27 @@ public class SnapdealAutomationTest extends BaseClass
         // Customer Rating Filter
 
         hp.clickFourStarRating();
+        System.out.println("Cutsomer rating filter clicked Successfully " );
 
-        Thread.sleep(4000);
-
-        System.out.println("4 Star & Up Filter Applied Successfully");
+        Thread.sleep(5000);
 
         // Discount Filter
 
-        hp.clickDiscount20to30();
+        WebElement discount = hp.discount20to30();
+
+        ((JavascriptExecutor)driver)
+        .executeScript("arguments[0].scrollIntoView({block:'center'});", discount);
+
+        Thread.sleep(1000);
+
+        ((JavascriptExecutor)driver)
+        .executeScript("arguments[0].click();", discount);
 
         Thread.sleep(4000);
 
         System.out.println("20-30% Discount Filter Applied Successfully");
+
+      
         // VERIFY FILTER HERE
 
         List<WebElement> prices = hp.getProductPrices();
@@ -87,7 +97,7 @@ public class SnapdealAutomationTest extends BaseClass
         int price2 = Integer.parseInt(prices.get(1).getText().replace("Rs. ", "").replace(",", ""));
         int price3 = Integer.parseInt(prices.get(2).getText().replace("Rs. ", "").replace(",", ""));
         int price4 = Integer.parseInt(prices.get(3).getText().replace("Rs. ", "").replace(",", ""));
-
+        System.out.println("Sort by low to high clicked successfully");
         System.out.println("Price 1 : " + price1);
         System.out.println("Price 2 : " + price2);
         System.out.println("Price 3 : " + price3);

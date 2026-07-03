@@ -49,7 +49,8 @@ public class HomePage
     
     By fourStarRating = By.xpath("//label[@for='avgRating-4.0']");
     
-    By discount20to30 = By.xpath("//label[@for='discount-20 - 30']");
+
+    By discount20to30 = By.xpath("//a[contains(text(),'20 - 30')]");
     // WebElement Methods
    
 

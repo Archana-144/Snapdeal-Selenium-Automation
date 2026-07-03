@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Archana Iyar\AppData\Local\Temp\testng-eclipse--739294353\testng-customsuite.xml</span>
+                    <span>C:\Users\Archana Iyar\AppData\Local\Temp\testng-eclipse-1030505433\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -135,9 +135,9 @@ from disconnected: not connected to DevTools
 Build info: version: &apos;4.45.0&apos;, revision: &apos;cd6a3cd cd6a3cdfca6970f62e5bc8344109d0fe0e2af05e&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e104eed8f5d9233ba68b8f744231dd7e, findElement {value=//div [@id=&apos;positiveBtn&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.201, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\ARCHAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56577}, goog:processID: 8996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56577/devtoo..., se:cdpVersion: 149.0.7827.201, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e104eed8f5d9233ba68b8f744231dd7e
+Command: [4267a408a20580e696d7942336de7204, findElement {using=xpath, value=//label[@for=&apos;avgRating-4.0&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.201, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\ARCHAN~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63824}, goog:processID: 43952, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63824/devtoo..., se:cdpVersion: 149.0.7827.201, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4267a408a20580e696d7942336de7204
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -149,9 +149,9 @@ Session ID: e104eed8f5d9233ba68b8f744231dd7e
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:396)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:390)
-	at pageObjects.CheckoutPage.yesButton(CheckoutPage.java:42)
-	at pageObjects.CheckoutPage.clickyes(CheckoutPage.java:70)
-	at testCases.SnapdealAutomationTest.snapdealAutomation(SnapdealAutomationTest.java:214)
+	at pageObjects.HomePage.fourStarRating(HomePage.java:114)
+	at pageObjects.HomePage.clickFourStarRating(HomePage.java:177)
+	at testCases.SnapdealAutomationTest.snapdealAutomation(SnapdealAutomationTest.java:70)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -187,7 +187,7 @@ Session ID: e104eed8f5d9233ba68b8f744231dd7e
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Archana Iyar\AppData\Local\Temp\testng-eclipse--739294353\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Archana Iyar\AppData\Local\Temp\testng-eclipse-1030505433\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -196,7 +196,11 @@ Session ID: e104eed8f5d9233ba68b8f744231dd7e
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.SnapdealAutomationTest&quot;/&gt;
+      &lt;class name=&quot;testCases.SnapdealAutomationTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;snapdealAutomation&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- testCases.SnapdealAutomationTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -240,12 +244,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'snapdealAutomation')
 data.setCell(0, 2, 'testCases.SnapdealAutomationTest')
-data.setCell(0, 3, 52388);
+data.setCell(0, 3, 12588);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 52 seconds</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
