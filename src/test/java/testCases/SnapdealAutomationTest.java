@@ -46,8 +46,12 @@ public class SnapdealAutomationTest extends BaseClass
         CheckoutPage chk = new CheckoutPage(driver);
         LoginRegisterPage lp = new LoginRegisterPage(driver);
 
-        // FIRST PRODUCT
        
+     // FIRST PRODUCT
+
+        String expectedProduct1 = hp.getFirstProductName().trim();
+
+        System.out.println("Expected Product 1 : " + expectedProduct1);
 
         hp.clickFirstProduct();
 
@@ -61,15 +65,26 @@ public class SnapdealAutomationTest extends BaseClass
 
         Thread.sleep(2000);
 
+        String actualCartProduct1 = cp.getCartProductName().trim();
+
+        System.out.println("Cart Product 1 : " + actualCartProduct1);
+
+        String expected1 = expectedProduct1.split("\\(")[0].trim();
+        String actual1 = actualCartProduct1.split("\\(")[0].trim();
+
+        Assert.assertEquals(actual1, expected1);
+
+        System.out.println("Product 1 Successfully Added To Cart");
         driver.close();
 
         switchToParentWindow(parent);
 
         Thread.sleep(2000);
+     // SECOND PRODUCT
 
-       
-        // SECOND PRODUCT
-       
+        String expectedProduct2 = hp.getSecondProductName().trim();
+
+        System.out.println("Expected Product 2 : " + expectedProduct2);
 
         hp.clickSecondProduct();
 
@@ -77,39 +92,61 @@ public class SnapdealAutomationTest extends BaseClass
 
         switchToChildWindow(parent);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         pp.clickAddToCart();
 
         Thread.sleep(2000);
+
+        String actualCartProduct2 = cp.getCartProductName().trim();
+
+        System.out.println("Cart Product 2 : " + actualCartProduct2);
+
+        String expected2 = expectedProduct2.split("\\(")[0].trim();
+        String actual2 = actualCartProduct2.split("\\(")[0].trim();
+
+        Assert.assertEquals(actual2, expected2);
+
+        System.out.println("Product 2 Successfully Added To Cart");
 
         driver.close();
 
         switchToParentWindow(parent);
 
         Thread.sleep(2000);
-
-       
-        // THIRD PRODUCT
       
+     // THIRD PRODUCT
+
+        String expectedProduct3 = hp.getThirdProductName().trim();
+
+        System.out.println("Expected Product 3 : " + expectedProduct3);
+
         hp.clickThirdProduct();
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         switchToChildWindow(parent);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
 
         pp.clickAddToCart();
 
         Thread.sleep(2000);
 
+        String actualCartProduct3 = cp.getCartProductName().trim();
+
+        System.out.println("Cart Product 3 : " + actualCartProduct3);
+        String expected3 = expectedProduct3.split("\\(")[0].trim();
+        String actual3 = actualCartProduct3.split("\\(")[0].trim();
+
+        Assert.assertEquals(actual3, expected3);
+        System.out.println("Product 3 Successfully Added To Cart");
+
         driver.close();
 
         switchToParentWindow(parent);
 
-        Thread.sleep(3000);
-
+        Thread.sleep(2000);
         
         // CART
      
@@ -117,10 +154,24 @@ public class SnapdealAutomationTest extends BaseClass
         hp.clickCart();
 
         Thread.sleep(1000);
+        String beforeRemove = cp.getCartItemCount();
+
+        System.out.println("Items Before Remove : " + beforeRemove);
+
+        Assert.assertEquals(beforeRemove, "(3 Items)");
+
+        System.out.println("Cart contains 3 Items");
 
         cp.clickRemove();
 
         Thread.sleep(3000);   
+        String afterRemove = cp.getCartItemCount();
+
+        System.out.println("Items After Remove : " + afterRemove);
+
+        Assert.assertEquals(afterRemove, "(2 Items)");
+
+        System.out.println("Product Removed Successfully. Cart now has 2 Items.");
 
         chk.clickProceedToPay();
         Thread.sleep(2000);

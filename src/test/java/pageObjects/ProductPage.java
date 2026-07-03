@@ -19,16 +19,14 @@ public class ProductPage
     
 
     By btnAddToCart = By.xpath("//span[text()='add to cart']");
-
-   
+      
     // WebElement Methods
   
     public WebElement addToCartButton()
     {
         return driver.findElement(btnAddToCart);
     }
-
-   
+  
     // Action Methods
     
 
@@ -36,5 +34,6 @@ public class ProductPage
     {
         addToCartButton().click();
     }
+   
 
 }

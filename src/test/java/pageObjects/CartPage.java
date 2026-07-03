@@ -24,7 +24,8 @@ public class CartPage
     By btnRemove = By.xpath("//div[@class='remove-item-div']");
 
     By btnCloseCartPopup = By.cssSelector("span.close-popup-icon");
-    
+    By cartProductName = By.xpath("//span[@class='product-name']/a");
+    By cartItemCount = By.xpath("//h3/span");
 
     //By btnStartShopping = By.xpath("//a[text()='START SHOPPING NOW']");
 
@@ -41,6 +42,14 @@ public class CartPage
         return driver.findElement(btnCloseCartPopup);
     }
 
+    public WebElement cartProductName()
+    {
+        return driver.findElement(cartProductName);
+    }
+    public WebElement cartItemCount()
+    {
+        return driver.findElement(cartItemCount);
+    }
 //    public WebElement startShoppingButton()
 //    {
 //        return driver.findElement(btnStartShopping);
@@ -65,7 +74,17 @@ public class CartPage
 
         closeCartPopupButton().click();
     }
+    //getter method
   
+    public String getCartProductName()
+    {
+        return cartProductName().getText();
+    }
+  
+    public String getCartItemCount()
+    {
+        return cartItemCount().getText();
+    }
 
 
 //    public boolean isStartShoppingDisplayed()

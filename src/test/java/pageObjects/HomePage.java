@@ -30,8 +30,11 @@ public class HomePage
 
     By register = By.xpath("//span[text()='Register']");
 
+    By firstProductName = By.xpath("(//p[contains(@class,'product-title')])[1]");
 
+    By secondProductName = By.xpath("(//p[contains(@class,'product-title')])[2]");
 
+    By thirdProductName = By.xpath("(//p[contains(@class,'product-title')])[3]");
     // WebElement Methods
    
 
@@ -50,7 +53,20 @@ public class HomePage
         return driver.findElement(thirdProduct);
     }
 
+    public WebElement firstProductName()
+    {
+        return driver.findElement(firstProductName);
+    }
 
+    public WebElement secondProductName()
+    {
+        return driver.findElement(secondProductName);
+    }
+
+    public WebElement thirdProductName()
+    {
+        return driver.findElement(thirdProductName);
+    }
     public WebElement cartButton()
     {
         return driver.findElement(btnCart);
@@ -95,5 +111,19 @@ public class HomePage
     public void clickRegister()
     {
         registerButton().click();
+    }
+    public String getFirstProductName()
+    {
+        return firstProductName().getText();
+    }
+
+    public String getSecondProductName()
+    {
+        return secondProductName().getText();
+    }
+
+    public String getThirdProductName()
+    {
+        return thirdProductName().getText();
     }
 }
